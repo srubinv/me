@@ -1,0 +1,27 @@
+/* SERVICES */
+.services{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.services h2{
+    margin-bottom:40px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.service{
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.service:hover{
+    background:#1a1a1a;
+    transform:scale(1.05);
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srubin-v</title>
+
+<link rel="stylesheet" href="./style/header.css">
+<link rel="stylesheet" href="./style/service.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:#fff;
+    opacity: 0;
+    transform:translateY(30px);
+    transition: all 0.8s ease;
+}
+
+body.loaded{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#ff2c2c;
+}
+
+.menu{
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+}
+
+.hero h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ff2c2c;
+}
+
+.hero p{
+    color:#bbb;
+    max-width:600px;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:14px 30px;
+    border:none;
+    background:#ff2c2c;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#ff0000;
+    transform:scale(1.05);
+}
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+<div id="header"></div>
+<script>
+    fetch("./grouping/header.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+    })
+</script>
+<!-- HERO -->
+<section class="hero">
+    <h1>See Everything. <span>Miss Nothing.</span></h1>
+    <p>Advanced CCTV systems designed to eliminate blind spots and protect what matters — 24/7.</p>
+    <button class="btn" onclick="window.location.href='./page/inspection.html'">Get Free Site Inspection →</button>
+    
+</section>
+<section class="social">
+    <script>
+        fetch("./grouping/social.html")
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector(".social").innerHTML = data;
+        })
+    </script>
+
+
+<!-- SERVICES -->
+<section class="services">
+    <script>
+        fetch("./grouping/services.html")
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector(".services").innerHTML = data;
+        })
+    </script>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <script>
+        fetch("./grouping/cta.html")
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector(".cta").innerHTML = data;
+        })
+    </script>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    <script>
+        fetch("./grouping/footer.html")
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector(".footer").innerHTML = data;
+        })
+    </script>
+</div>
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Site Inspection</title>
+<link rel="stylesheet" href="../style/header.css">
+
+<style>
+body{
+    background:#0a0a0a;
+    color:#fff;
+    font-family:Segoe UI, sans-serif;
+    margin:0;
+    opacity:0;
+    transform:translateY(30px);
+    transition: all 0.8s ease;
+}
+
+/* When page loads */
+body.loaded{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.container{
+    max-width:500px;
+    margin:80px auto;
+    background:#111;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 0 30px rgba(255,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+h1 span{
+    color:#ff2c2c;
+}
+
+p{
+    text-align:center;
+    color:#bbb;
+    margin-bottom:30px;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:5px;
+    background:#1a1a1a;
+    color:#fff;
+}
+
+input:focus, textarea:focus{
+    outline:1px solid #ff2c2c;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#ff2c2c;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff0000;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#777;
+    font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("../grouping/header.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+        })
+    </script>
+
+
+<div class="container">
+    <h1>Free <span>Site Inspection</span></h1>
+    <p>Fill the details. We’ll contact you shortly.</p>
+
+    <!-- FORM -->
+    <form onsubmit="sendToWhatsApp(); return false;">
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="text" id="location" placeholder="Installation Location" required>
+
+    <textarea id="message" placeholder="Any specific requirements..."></textarea>
+
+    <button type="submit">Submit Request →</button>
+</form>
+
+<script>
+function sendToWhatsApp(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let location = document.getElementById("location").value;
+    let message = document.getElementById("message").value;
+
+    let text = `New CCTV Inquiry:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Email: ${email}%0A
+Location: ${location}%0A
+Message: ${message}`;
+
+    let url = `https://wa.me/919400784159?text=${text}`;
+
+    window.open(url, "_blank");
+}
+</script>
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+</script>
+
+    <div class="footer">
+        SecurityPros © 2026
+    </div>
+</div>
+
+</body>
+</html>
